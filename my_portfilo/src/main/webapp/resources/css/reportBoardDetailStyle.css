@@ -1,0 +1,230 @@
+@charset "UTF-8";
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+a{
+	text-decoration: none;
+}
+html,bodys{
+   width:100%;
+   height:100%;
+}
+#wrap {
+	background:#fff; 
+	position:relative;
+	width:100%;
+}
+#container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#header{
+    /* 헤더영역: 로고 커뮤니티 링크 */
+    width: 100%;
+    height: 100px;
+    display: flex;
+    background-color:white;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(207 207 207);
+}
+#header > div{
+	width: 88%;
+    line-height: 100px;
+}
+#header > div > p > a{
+    float: left;
+    font-size: 3rem;
+    font-weight: bolder;
+    color: #5F6368;
+}
+#header > div > span{
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: #5F6368;
+}
+#header > div > ul{
+    float: right;
+    display: flex;
+	list-style-type: none;
+}
+#header > div > ul >li{
+	margin: 0 10px;	
+}
+#section{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+#section_Con{
+    width: 100%;
+    margin-top: 10px;
+}
+.section_Con_Ele1{
+    width: 65%;
+    height: 100px;
+    float: left;
+    padding: 10px;
+}
+.section_Con_Ele1 > div:first-child{
+    font-size: 1.5rem;
+    color: #5F6368;
+}
+.section_Con_Ele1 > div:last-child{
+    font-size: 3rem;
+}
+.section_Con_Ele2{
+    width: 35%;
+    height: 100px;
+    float: right;
+    padding: 10px;
+}
+.section_Con_Ele2 > div:first-child{
+    font-size: 1.5rem;
+    color: #5F6368;
+    margin-top: 25px;
+}
+.section_Con_Ele2 > div:last-child{
+    font-size: 1.3rem;
+    color: #5F6368;
+}
+.section_Con_Ele3{
+    width: 100%;
+    height: 500px;
+    float: left;
+    border: 1px solid rgba(207 207 207);
+}
+.section_Con_Ele3 > div{
+    margin-top: 20px;
+    padding: 10px;
+}
+.detailBtn_1 > a{
+	background-color: #868787;
+}
+.detailBtn_1  > a:hover{
+	background-color: #343434;
+	transition: all 0.3s;
+}
+.detailBtn_2  > a{
+	background-color: #868787;
+}
+.detailBtn_2 > a:hover{
+	background-color: #343434;
+	transition: all 0.3s;
+}
+
+#article2{
+	width: 72%;
+	height: 50px;
+}
+#article2 > div{
+	margin: 20px 10px;
+	float: right;
+	
+}
+#article2 > div > a{
+	width: 200px;
+	height: 40px;
+	display:block;
+	text-align:center;
+	line-height:40px;
+	text-decoration: none;
+	font-size: 1.2rem;
+	color: #fff;
+
+	border: 1px solid rgba(207 207 207);
+	
+}
+
+#pageNation{
+    width: 88%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#footer{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    background-color: #3D434D;
+}
+.a11y_menu {
+	display:block; 
+	position:fixed; 
+	right:0; 
+	top:180px;
+	width:150px; 
+	background:none;
+	z-index:10001;}
+   
+.blind{
+	height:50px; 
+	width:143px; 
+	display: flex;
+	align-items:center;
+	cursor: pointer;
+	border-bottom: 1px solid #e8e8e8; 
+}
+.blind > span > i{
+	font-size: 0.9rem;
+	margin-left: 15px;
+}   
+.a11y_menu ul{
+	list-style-type: none;
+	cursor: pointer;	
+}
+.a11y_menu button {
+	border:0; 
+	background:#f5f7f7; 
+	height:50px; 
+	width:143px; 
+	color:#4b5056; 
+	font-size:15px; 
+	text-align:left; 
+	border-bottom:1px solid #e8e8e8; 
+}
+.a11y_menu button:hover {
+	border: 1px solid #e8e8e8; 
+}
+.a11y_menu button.active {
+	border: 1px solid #e8e8e8;
+} 
+.a11y_menu ul li span{
+	padding: 10px;
+}  
+html.invert {
+	-webkit-filter: invert();
+	filter: progid:DXImageTransform.Microsoft.BasicImage(invert=1);
+	-ms-filter: 'progid:DXImageTransform.Microsoft.BasicImage(invert=1)';
+}
+.magnify_area {
+	position:absolute; 
+	top:0; 
+	left:0; 
+	display:none; 
+	z-index:10000;
+}
+#magnify {
+	display:none; 
+	background:#fff;
+} 
+.magnify_lense {
+	position:absolute; 
+	width:180px; 
+	height:180px; 
+	border-radius:100%; 
+	box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85),  0 0 5px 7px rgba(0, 0, 0, 0.25),  inset 0 0 5px 1px rgba(0, 0, 0, 0.25); 
+	background-color:#fff; 
+	display:none;
+}

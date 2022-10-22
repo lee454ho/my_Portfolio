@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+body{
+	width: 100vw;
+	height: 100vh;
+}
+
+.denied_img{
+	
+}

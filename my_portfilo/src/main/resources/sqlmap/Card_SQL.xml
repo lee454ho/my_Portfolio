@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="card">
+
+	<select id="select_list" parameterType="com.mycompany.project.card.model.CardDTO"
+		resultType="com.mycompany.project.card.model.CardDTO">
+   
+        select
+        category,
+        store_name,
+ 		address_rd,
+        address_lm,
+ 		phone
+        from
+        store
+		  
+		where 1=1
+		<choose>
+			<when test="type !=null and type.equals('Gangnam')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','강남구','%') or address_lm like CONCAT('%','강남구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Gangdong')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','강동구','%') or address_lm like CONCAT('%','강동구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Gangbuk')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','강북구','%') or address_lm like CONCAT('%','강북구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Gangseo')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','강서구','%') or address_lm like CONCAT('%','강서구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Gwanak')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','관악구','%') or address_lm like CONCAT('%','관악구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Gwangjin')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','광진구','%') or address_lm like CONCAT('%','광진구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Guro')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','구로구','%') or address_lm like CONCAT('%','구로구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Geumcheon')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','금천구','%') or address_lm like CONCAT('%','금천구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Nowon')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','노원구','%') or address_lm like CONCAT('%','노원구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Dobong')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','도봉구','%') or address_lm like CONCAT('%','도봉구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('DongDaeMoon')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','동대문구','%') or address_lm like CONCAT('%','동대문구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Dongjak')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','동작구','%') or address_lm like CONCAT('%','동작구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Mapo')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','마포구','%') or address_lm like CONCAT('%','마포구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Seodaemun')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','서대문구','%') or address_lm like CONCAT('%','서대문구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Seocho')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','서초구','%') or address_lm like CONCAT('%','서초구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Seongdong')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','성동구','%') or address_lm like CONCAT('%','성동구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Seongbuk')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','성북구','%') or address_lm like CONCAT('%','성북구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Songpa')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','송파구','%') or address_lm like CONCAT('%','송파구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Yangcheon')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','양천구','%') or address_lm like CONCAT('%','양천구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Yeongdeungpo')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','영등포구','%') or address_lm like CONCAT('%','영등포구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Yongsan')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','용산구','%') or address_lm like CONCAT('%','용산구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Eunpyeong')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','은평구','%') or address_lm like CONCAT('%','은평구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Jongno')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','종로구','%') or address_lm like CONCAT('%','종로구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Jung')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','중구','%') or address_lm like CONCAT('%','중구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			<when test="type !=null and type.equals('Jungnang')" >
+				and (store_name like CONCAT('%',#{keyword},'%'))
+				and (address_rd like CONCAT('%','중랑구','%') or address_lm like CONCAT('%','중랑구','%'))
+				<if test="category_select !=null and category_select.equals('convenience_store')">
+					and (category like CONCAT('%','편의점','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('restaurant')">
+					and (category like "%한식%" or category like "%중식%" or category like "%일식%" or category like "%양식%"
+				or category like "%일반대중음식%")
+				</if>
+				<if test="category_select !=null and category_select.equals('fast_food')">
+					and (category like CONCAT('%','패스트푸드','%'))
+				</if>
+				<if test="category_select !=null and category_select.equals('bakery')">
+					and (category like CONCAT('%','제과점','%'))
+				</if>
+			</when>
+			
+		</choose>
+		limit 100
+	</select>
+
+</mapper>

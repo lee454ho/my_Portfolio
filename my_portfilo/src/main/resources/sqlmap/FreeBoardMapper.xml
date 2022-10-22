@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FreeBoardMapper">
+
+	<select id="boardlist" resultType="com.mycompany.project.board.model.FreeBoardDTO">
+		select *
+		from board_free;
+	</select>
+
+	<select id="listPaging" resultType="com.mycompany.project.board.model.FreeBoardDTO">
+		select * 
+		from 
+		(select free_board_id, category, title, user_id, regdate
+		from board_free
+		<if test="keyword != null">
+			<include refid="criteria"></include>
+		</if>
+		order by free_board_id desc) as A
+		limit #{skip},#{amount};
+	</select>
+	
+	<select id="total" resultType="int">
+		select count(*)
+		from 
+		board_free
+		<if test="keyword != null">
+			<include refid="criteria"></include>
+		</if>
+	</select>
+	
+	<insert id="insert">
+		insert into board_free(category, title, content, user_id )
+		values(#{category}, #{title}, #{content}, #{user_id});
+	</insert>
+	
+	<select id="detail" parameterType="hashMap" resultType="hashMap">
+		select free_board_id, category, title, content, user_id, regdate from board_free
+		where free_board_id=#{free_board_id};
+	</select>
+	
+	<update id="update" parameterType="hashMap">
+		update board_free
+		set title=#{title}, content=#{content}, user_id=#{user_id} ,category=#{category}
+		where free_board_id=#{free_board_id};
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from board_free where free_board_id = #{free_board_id};
+	</delete>
+	
+	<sql id="criteria">
+	 	<trim prefix="where (" suffix=")" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+	 			<choose>
+	 				<when test="type == ''.toString()">
+	 					user_id like concat('%', #{keyword}, '%')
+						or title like concat('%', #{keyword}, '%')
+						or category like concat('%', #{keyword}, '%')
+	 				</when>
+	 			
+					<when test="type == 'T'.toString()">
+	 					title like concat('%',#{keyword},'%')
+	 				</when>
+						
+ 					<when test="type == 'C'.toString()">
+	 					category like concat('%',#{keyword},'%')
+	 				</when>
+	 				
+	 				<when test="type == 'W'.toString()">
+	 					user_id like concat('%',#{keyword},'%')
+	 				</when>
+				</choose>
+				</trim>
+			</foreach>
+	 	</trim>
+	 </sql>
+	
+	
+	
+</mapper>

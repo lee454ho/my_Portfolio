@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+		<insert id="insert">
+		insert into user (
+			user_id,
+			user_password,
+			user_name,
+			address,
+			address_detail,
+			authority,
+			del_YN,
+			user_state,
+			zipcode,
+			email
+		)
+		values
+		(
+			#{user_id},
+			#{user_password},
+			#{user_name}, 
+			#{address}, 
+			#{address_detail},
+			'ROLE_USER',
+			'N',
+			'정상',
+			#{zipcode},
+			#{email}
+		)
+			 
+	</insert>
+	<select id="detail" resultType="hashmap">
+		select
+			user_id as username,
+			user_password as password,
+			user_name,
+			enabled_YN, 
+			authority
+		from 
+			user
+		where 
+			user_id=#{user_id} and del_YN='N'
+	</select>
+	
+	<select id="idCheck" resultType="int">
+		select
+			count(*)
+		from
+			user
+		where
+			user_id=#{user_id};
+	</select>
+	
+	<select id="userList" resultType="com.mycompany.project.common.model.dto.MemberDTO">
+<![CDATA[ 
+		SELECT 
+			user_id,
+		    user_password,
+		    user_name,
+		    address,
+		    address_detail,
+		    zipcode,
+		    enabled_YN,
+		    authority,
+		    date_format(pause_date,'%Y-%m-%d %H:%i:%s') as pause_date,
+		    email,
+		    del_YN
+		FROM 
+			user
+			 ]]>
+
+</select>
+
+<select id="userDetail" resultType="com.mycompany.project.common.model.dto.MemberDTO">
+<![CDATA[ 
+		SELECT 
+			user_id,
+		    user_password,
+		    user_name,
+		    address,
+		    address_detail,
+		    zipcode,
+		    enabled_YN,
+		    authority,
+		    date_format(pause_date,'%Y-%m-%d %H:%i:%s') as pause_date,
+		    email,
+		    user_state,
+		    del_YN
+		FROM 
+			user
+		where
+			user_id = #{user_id}
+			 ]]>
+
+</select>
+
+<update id="userPause">
+
+UPDATE user 
+SET
+	user_state= authority,
+	authority = 'ROLE_PAUSE',
+	pause_date = DATE_ADD(NOW(), INTERVAL #{count} second)
+where
+	user_id=#{user_id}
+</update>
+
+<update id="userDel">
+
+UPDATE user
+SET
+	del_YN='Y'
+where
+	user_id=#{user_id}
+</update>
+
+
+<update id="pauseBatch">
+
+<![CDATA[ 
+update user
+set
+authority = user_state,
+user_state = '',
+PAUSE_DATE = NULL
+where user_id in (
+    select A.user_id from
+    (
+    select
+        user_id
+    from
+        user
+    where
+        pause_date < now()
+    and
+    authority = 'ROLE_PAUSE'
+    )A
+)
+]]>
+</update>
+
+</mapper>

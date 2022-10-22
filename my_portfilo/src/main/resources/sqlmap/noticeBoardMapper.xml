@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="noticeBoardMapper">
+
+	<select id="boardlist" resultType="com.mycompany.project.board.model.noticeBoardDTO">
+		select *
+		from board_notice;
+	</select>
+	
+	
+	<select id="listPaging" resultType="com.mycompany.project.board.model.noticeBoardDTO">
+		select * 
+		from 
+		(select nboard_id, category, title, user_id, regdate
+		from board_notice
+		<if test="keyword != null">
+			<include refid="criteria"></include>
+		</if>
+		order by nboard_id desc) as A
+		limit #{skip},#{amount};  
+	</select>
+	
+	<select id="total" resultType="int">
+		select count(*)
+		from 
+		board_notice
+		<if test="keyword != null">
+			<include refid="criteria"></include>
+		</if>
+	</select>
+	
+	<insert id="insert">
+		insert into board_notice(category, title, content, user_id, file_name, file_url)
+		values(#{category}, #{title}, #{content}, #{user_id}, #{file_name}, #{file_url});
+	</insert>
+	
+	<select id="detail" parameterType="hashMap" resultType="hashMap">
+		select nboard_id, category, title, content, user_id, regdate, file_name from board_notice
+		where nboard_id=#{nboard_id};
+	</select>
+	
+	<update id="update" parameterType="hashMap">
+		update board_notice
+		set title=#{title}, content=#{content}, user_id=#{user_id} ,category=#{category}, file_name=#{file_name}, file_url=#{file_url}
+		where nboard_id=#{nboard_id};
+	</update>
+	
+	<update id="content_update" parameterType="hashMap">
+		update board_notice
+		set title=#{title}, content=#{content}, user_id=#{user_id} ,category=#{category}
+		where nboard_id=#{nboard_id};
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from board_notice where nboard_id = #{nboard_id};
+	</delete>
+	
+	<update id="AttachColumnDel">
+		update board_notice
+		set file_name=null, file_url=null 
+		where nboard_id=#{nboard_id};
+	</update>
+	
+	<select id="getFile_Name" resultType="String">
+		select file_name from board_notice where nboard_id = #{nboard_id};
+	</select>
+	
+	<select id="getFileName" resultType="String">
+		select file_name from board_notice
+		where nboard_id=#{nboard_id};
+	</select>
+		<select id="getFileUrl" resultType="String">
+		select file_url from board_notice
+		where nboard_id=#{nboard_id};
+	</select>
+	
+	<sql id="criteria">
+	 	<trim prefix="where (" suffix=")" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+	 			<choose>
+	 				<when test="type == ''.toString()">
+	 					user_id like concat('%', #{keyword}, '%')
+						or title like concat('%', #{keyword}, '%')
+						or category like concat('%', #{keyword}, '%')
+	 				</when>
+	 			
+					<when test="type == 'T'.toString()">
+	 					title like concat('%',#{keyword},'%')
+	 				</when>
+						
+ 					<when test="type == 'C'.toString()">
+	 					category like concat('%',#{keyword},'%')
+	 				</when>
+	 				
+	 				<when test="type == 'W'.toString()">
+	 					user_id like concat('%',#{keyword},'%')
+	 				</when>
+				</choose>
+				</trim>
+			</foreach>
+	 	</trim>
+	 </sql>
+	
+	
+</mapper>

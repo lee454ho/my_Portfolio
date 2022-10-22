@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="replyMapper">
+	<insert id="insertReply">
+		insert into free_reply(user_id, content,free_board_id) values(#{user_id}, #{content}, #{free_board_id});			
+	</insert>
+	
+	<select id="replyList" resultType="com.mycompany.project.board.model.FreeReplyDTO">
+		select replyId, user_id, content, regDate
+		from free_reply
+		where free_board_id = #{free_board_id}
+		order by regDate desc  		
+  		limit #{skip}, #{amount}
+	</select>
+	
+	<select id="replyTotal" resultType="int">
+		select count(*)
+  		from free_reply
+  		where free_board_id = #{free_board_id}
+	</select>
+	
+	<delete id="deleteReply">
+  		delete from free_reply
+  		where replyId = #{replyId}
+  	</delete>
+  	
+  	<update id="updateReply">
+  		update free_reply set content = #{content}
+  		where replyId = #{replyId}
+  	</update>
+  	
+  	<select id="replyDetail" parameterType="int" resultType="com.mycompany.project.board.model.FreeReplyDTO">
+		select user_id, content, replyId, regDate
+		from free_reply
+		where
+		replyId=#{replyId};
+	</select>
+</mapper>

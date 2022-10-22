@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="disabled">
+
+	<select id="select_list" parameterType="hashMap"
+		resultType="hashMap">
+     <![CDATA[
+        select
+        distinct
+        address,
+        fac_name,
+ 		fac_stateYN,
+ 		eval_info
+        from
+        facility_info
+        where 1=1
+     ]]> 
+     	<choose>
+
+ 		<when test="keyword2 == '대변기'">
+		and (eval_info like CONCAT('%',#{keyword2},'%'))
+		</when>
+		<when test="keyword2 == '장애인전용주차구역'" >
+		and (eval_info like CONCAT('%',#{keyword2},'%'))
+		</when>
+		<when test="keyword2 == '계단 또는 승강설비'">
+		and (eval_info like CONCAT('%',#{keyword2},'%'))
+		</when>
+		<when test="keyword != null and keyword != ''" >
+			and (fac_name like CONCAT('%',#{keyword},'%'))
+		</when>
+		</choose>
+		
+	</select>
+
+</mapper>

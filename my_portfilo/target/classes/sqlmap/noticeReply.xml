@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="noticeReply">
+	<insert id="noticeInsertReply">
+		insert into notice_reply(user_id, content,nboard_id) values(#{user_id}, #{content}, #{nboard_id});			
+	</insert>
+	
+	<select id="noticeReplyList" resultType="com.mycompany.project.board.model.noticeReplyDTO">
+		select replyId, user_id, content, regDate
+		from notice_reply
+		where nboard_id = #{nboard_id}
+		order by regDate desc  		
+  		limit #{skip}, #{amount}
+	</select>
+	
+	<select id="noticeReplyTotal" resultType="int">
+		select count(*)
+  		from notice_reply
+  		where nboard_id = #{nboard_id}
+	</select>
+	
+	<delete id="noticeDeleteReply">
+  		delete from notice_reply
+  		where replyId = #{replyId}
+  	</delete>
+  	
+  	<update id="noticeUpdateReply">
+  		update notice_reply set content = #{content},
+  		where replyId = #{replyId}
+  	</update>
+  	
+  	<select id="noticeGetUpdateReply" resultType="com.mycompany.project.board.model.noticeReplyDTO">
+		select * from notice_reply
+		where replyId = #{replyId}
+	</select>
+</mapper>
