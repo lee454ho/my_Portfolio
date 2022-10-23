@@ -45,12 +45,22 @@
 # 주요기능
 
 ### 여행지 소개
-<img width="400px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197396037-72df9764-aa9c-433e-81ba-0748219a1856.gif">
+
+<img width="400px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397392-2a576088-2e61-436f-aaeb-7245ac83411f.gif">
+<br>
+<br>
 
 ### 웹접근성(돋보기)
 
+<img width="400px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397465-c024d85c-c474-495d-a094-0e54d7842098.gif">
+<br>
+<br>
+
 ### 게시판(댓글)
-<img width="400px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197379855-6ea628d5-8fa6-4e72-a98b-79c1e3b1ab52.gif">
+
+<img width="400px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397439-bf67f74e-8f71-4998-afbc-13d84cbce22d.gif">
+<br>
+<br>
 
 
 
