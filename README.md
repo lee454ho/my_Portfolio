@@ -5,8 +5,9 @@
 웹 접근성을 고려하여 만든 종합 정보제공 사이트입니다.<br>	
 한눈에 보기 쉬운 UI설계와 웹 접근성을 고려한것이 특징입니다.
 
-
-
+# 개발 목표
+spring framework 사용으로 기본적인 웹 서버 구조의 이해와<br>
+api를 활용한 웹 사이트 구현.
 # Team
 
 |  이름  |
@@ -48,7 +49,7 @@
 # 주요기능
 
 ### 여행지 소개
-
+api를 활용한 장애인 편의시설이 갖춰져있는 여행지 정보 제공<br>
 <img width="500px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397392-2a576088-2e61-436f-aaeb-7245ac83411f.gif">
 <br>
 <br>
@@ -59,7 +60,7 @@
 <br>
 
 ### 웹접근성(돋보기)
-
+저시력자를 위한 웹접근성 기능<br>
 <img width="500px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397465-c024d85c-c474-495d-a094-0e54d7842098.gif">
 <br>
 <br>
@@ -68,6 +69,7 @@
 <br>
 <br>
 <br>
+
 
 ### 게시판(댓글)
 
