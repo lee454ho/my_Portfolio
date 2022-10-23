@@ -48,8 +48,9 @@
 <br>
 <br>
 <br>
+
 ### 게시판(댓글)
-<br>
-![reply](https://user-images.githubusercontent.com/109510945/197379661-115ee809-2f66-4b48-b8fa-e7f1d8bf568f.gif)
+![reply](https://user-images.githubusercontent.com/109510945/197379855-6ea628d5-8fa6-4e72-a98b-79c1e3b1ab52.gif)
+
 
 	
