@@ -45,6 +45,10 @@
 # 주요기능
 
 ### 여행지 소개 
-
+<br>
+<br>
+<br>
+### 게시판(댓글)
+![reply](https://user-images.githubusercontent.com/109510945/197379661-115ee809-2f66-4b48-b8fa-e7f1d8bf568f.gif)
 
 	
