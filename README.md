@@ -32,7 +32,7 @@
 <br>
 
 ### 무장애 여행지 Page
-<img width="600" alt="portfolio_travel" src="https://user-images.githubusercontent.com/109510945/197376501-db625e26-46b7-419f-81b9-51bb0b51b38d.png">
+<img width="400" alt="portfolio_travel" src="https://user-images.githubusercontent.com/109510945/197376501-db625e26-46b7-419f-81b9-51bb0b51b38d.png">
 <br>
 <br>
 <br>
@@ -46,19 +46,29 @@
 
 ### 여행지 소개
 
-<img width="400px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397392-2a576088-2e61-436f-aaeb-7245ac83411f.gif">
+<img width="500px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397392-2a576088-2e61-436f-aaeb-7245ac83411f.gif">
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
 ### 웹접근성(돋보기)
 
-<img width="400px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397465-c024d85c-c474-495d-a094-0e54d7842098.gif">
+<img width="500px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397465-c024d85c-c474-495d-a094-0e54d7842098.gif">
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
 ### 게시판(댓글)
 
-<img width="400px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397439-bf67f74e-8f71-4998-afbc-13d84cbce22d.gif">
+<img width="500px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197397439-bf67f74e-8f71-4998-afbc-13d84cbce22d.gif">
 <br>
 <br>
 
