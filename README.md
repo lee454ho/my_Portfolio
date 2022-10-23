@@ -17,18 +17,30 @@
 <div>
 	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
 	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
-	<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />
-	<img src="https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=Spring&logoColor=white" />
+	<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" /><br>
+	<img src="https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=Spring&logoColor=white" /><br>
 	<img src="https://img.shields.io/badge/mysql-4479A1?style=flat&logo=mysql&logoColor=white" />
 	<img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=flat&logo=Amazon AWS&logoColor=white" />
 </div>
 
 # UI Design
 
-### main
+### Main
+<img width="400" alt="portfolio_main" src="https://user-images.githubusercontent.com/109510945/197376497-a62d02d7-bb6c-4ec8-bc3f-55746d3c5595.png">
+<br>
+<br>
+<br>
 
-<img width="275" alt="스크린샷 2022-10-23 오후 2 42 20" src="https://user-images.githubusercontent.com/109510945/197376332-dc2f9f38-80bf-4bbf-89ae-720e80b8bb20.png">
+### 무장애 여행지 Page
+<img width="600" alt="portfolio_travel" src="https://user-images.githubusercontent.com/109510945/197376501-db625e26-46b7-419f-81b9-51bb0b51b38d.png">
+<br>
+<br>
+<br>
 
+### 게시판 Page
+<img width="400" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197376504-1784440c-81ed-47e5-a158-01416f744119.png">
+<br>
+<br>
 
 
 	
