@@ -27,6 +27,8 @@
 
 ### main
 
+<img width="275" alt="스크린샷 2022-10-23 오후 2 42 20" src="https://user-images.githubusercontent.com/109510945/197376332-dc2f9f38-80bf-4bbf-89ae-720e80b8bb20.png">
+
 
 
 	
