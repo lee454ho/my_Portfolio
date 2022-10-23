@@ -45,7 +45,7 @@
 # 주요기능
 
 ### 여행지 소개
-![travel](https://user-images.githubusercontent.com/109510945/197396037-72df9764-aa9c-433e-81ba-0748219a1856.gif)
+<img width="400px" alt="portfolio_board" src="https://user-images.githubusercontent.com/109510945/197396037-72df9764-aa9c-433e-81ba-0748219a1856.gif">
 
 ### 게시판(댓글)
 ![reply](https://user-images.githubusercontent.com/109510945/197379855-6ea628d5-8fa6-4e72-a98b-79c1e3b1ab52.gif)
